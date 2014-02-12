@@ -453,6 +453,17 @@ If ``using`` is provided, it specifies which connection should be
 used. Default relies on the routers to decide which backend should
 be used.
 
+``update_objects``
+-----------------
+
+.. method:: SearchIndex.update_objects(self, instances, using=None, **kwargs)
+
+Bulk updates the index for many object. 
+
+If ``using`` is provided, it specifies which connection should be
+used. Default relies on the routers to decide which backend should
+be used.
+
 ``remove_object``
 -----------------
 

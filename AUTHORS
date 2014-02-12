@@ -83,4 +83,5 @@ Thanks to
     * Andrew Schoen (andrewschoen) for the addition of ``HAYSTACK_IDENTIFIER_METHOD``
     * Pablo SEMINARIO (pabluk) for a docs fix.
     * Eric Thurgood (ethurgood) for a import fix in the Elasticssearch backend.
+    * Sep Dehpour (erasmose) for a patch on bulk model update function
     * Revolution Systems & The Python Software Foundation for funding a significant portion of the port to Python 3!

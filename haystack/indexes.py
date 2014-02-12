@@ -276,11 +276,11 @@ class SearchIndex(with_metaclass(DeclarativeMetaclass, threading.local)):
 
     def update_objects(self, instances, using=None, **kwargs):
         """
-        Sep: Update the index for objects. 
+        Bulk update the index for many objects. 
         If ``using`` is provided, it specifies which connection should be
         used. Default relies on the routers to decide which backend should
         be used.
-        It DOES NOT check to make sure objects should be updated.
+        It DOES NOT check to make sure each object should be updated or not.
         """
 
         backend = self._get_backend(using)

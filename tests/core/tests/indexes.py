@@ -387,6 +387,24 @@ class SearchIndexTestCase(TestCase):
         self.assertEqual([(res.content_type(), res.pk) for res in self.sb.search('*')['results']], [(u'core.mockmodel', u'20')])
         self.sb.clear()
 
+    def test_update_objects(self):
+        self.sb.clear()
+        self.assertEqual(self.sb.search('*')['hits'], 0)
+
+        mock = MockModel()
+        mock.pk = 20
+        mock.author = 'daniel%s' % mock.id
+        mock.pub_date = datetime.datetime(2009, 1, 31, 4, 19, 0)
+
+        mock2 = MockModel()
+        mock2.pk = 30
+        mock2.author = 'daniel%s' % mock.id
+        mock2.pub_date = datetime.datetime(2014, 1, 31, 4, 19, 0)
+
+        self.mi.update_objects([mock, mock2,])
+        self.assertEqual([(res.content_type(), res.pk) for res in self.sb.search('*')['results']], [(u'core.mockmodel', u'20'), (u'core.mockmodel', u'30')])
+        self.sb.clear()
+
     def test_remove_object(self):
         self.mi.update()
         self.assertEqual(self.sb.search('*')['hits'], 3)
