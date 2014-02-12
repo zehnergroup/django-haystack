@@ -286,7 +286,7 @@ class SearchIndex(with_metaclass(DeclarativeMetaclass, threading.local)):
         backend = self._get_backend(using)
 
         if backend is not None:
-            backend.update(self, instance)
+            backend.update(self, instances)
 
 
     def remove_object(self, instance, using=None, **kwargs):
